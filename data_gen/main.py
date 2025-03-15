@@ -18,20 +18,20 @@ if __name__ == '__main__':
 
 	course_collection = db['Courses']
 	course = Courses()
-	course_result = course.gen_data(1000)
+	course_result = course.gen_data(10000)
 	course_ids = course_collection.insert_many(course_result).inserted_ids
 
 	teacher_collection = db['Teachers']
 	teacher = Teachers(course_result)
-	teacher_result = teacher.gen_data(200)
+	teacher_result = teacher.gen_data(300)
 	teacher_ids = teacher_collection.insert_many(teacher_result).inserted_ids
 
 	faculty_collection = db['Faculties']
 	faculty = Faculties(teacher_result)
-	faculty_result = faculty.gen_data(200)
+	faculty_result = faculty.gen_data(2000)
 	faculty_ids = faculty_collection.insert_many(faculty_result).inserted_ids
 
 	student_collection = db['Students']
 	student = Students(course_result, teacher_result, faculty_result)
-	student_result = student.gen_data(200)
+	student_result = student.gen_data(200000)
 	student_ids = student_collection.insert_many(student_result).inserted_ids

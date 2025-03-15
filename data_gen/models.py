@@ -64,7 +64,7 @@ class Students(BaseFakeGenClass):
 	
 	def group_name_gen_func(self):
 		arr = [chr(random.randint(ord("a"), ord("z"))) for _ in range(3)]
-		return f'{"".join(arr)}-{random.randint(100, 999)}'
+		return f'{"".join(arr)}-{random.randint(10, 99)}'
 
 	def docs_gen_func(self):
 		return [
